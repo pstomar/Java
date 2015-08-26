@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.tomar.hibernate.dto.impl.User" table="users">
+        <id column="userid" name="userid" type="java.lang.Integer" />
+        <property column="username" name="username" type="java.lang.String" />
+        <property column="password" name="password" type="string" />
+        <property column="email" name="email" type="java.lang.String" />
+        <property column="contact" name="contact" type="java.lang.String" />
+        <!-- <property column="city" name="city" type="com.tomar.hibernate.dto.City" /> -->
+        
+        <many-to-one name="city" class="com.tomar.hibernate.dto.impl.City" lazy="false">
+            <column name="city_id" not-null="true" />
+        </many-to-one>
+        
+    </class>
+</hibernate-mapping> 
